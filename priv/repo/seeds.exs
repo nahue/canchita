@@ -9,5 +9,13 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-Triplex.create("tenant_a")
-Triplex.create("tenant_b")
+alias Saas101.Repo
+alias Saas101.Users.User
+
+
+Triplex.create("canchita")
+
+Repo.insert!(%User{
+  email: "test@test.com",
+  password_hash: "$pbkdf2-sha512$100000$fmyL2D4eBe6psZkQkaVsTw==$1X//1sv7wjwgdfHaQM7EEey5nL5tbCRCji4LD2IVi1Stg0zUajxLtAUQDTUvPB/x9X5QGHy9ODxqqdjdyK9Lvw=="
+}, prefix: Triplex.to_prefix("canchita"))

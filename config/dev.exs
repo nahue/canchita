@@ -6,6 +6,7 @@ config :saas101, Saas101.Repo,
   password: "postgres",
   hostname: "localhost",
   database: "saas101_dev",
+  port: 5431,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
