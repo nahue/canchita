@@ -1,10 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run Server" type="MixRunConfigurationType" factoryName="Elixir Mix">
-    <module name="canchita" />
     <mix>
       <argument>phx.server</argument>
     </mix>
-    <module name="canchita" />
     <module-filters inherit-application-module-filters="true" />
     <method v="2" />
   </configuration>
