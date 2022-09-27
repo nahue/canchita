@@ -1,0 +1,26 @@
+<h1>Listing Canchas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cancha <- @canchas do %>
+    <tr>
+      <td><%= cancha.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.cancha_path(@conn, :show, cancha) %></span>
+        <span><%= link "Edit", to: Routes.cancha_path(@conn, :edit, cancha) %></span>
+        <span><%= link "Delete", to: Routes.cancha_path(@conn, :delete, cancha), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Cancha", to: Routes.cancha_path(@conn, :new) %></span>

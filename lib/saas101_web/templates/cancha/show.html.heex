@@ -1,0 +1,13 @@
+<h1>Show Cancha</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @cancha.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.cancha_path(@conn, :edit, @cancha) %></span> |
+<span><%= link "Back", to: Routes.cancha_path(@conn, :index) %></span>
