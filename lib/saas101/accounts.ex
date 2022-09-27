@@ -7,7 +7,7 @@ defmodule Saas101.Accounts do
 
   def create_account(tenant_id, params) do
     tenant_id
-    |> Triplex.create_schema(Repo, fn (tenant, repo) ->
+    |> Triplex.create_schema(Repo, fn tenant, repo ->
       do_create_account(tenant, repo, params)
     end)
     |> case do
@@ -18,13 +18,12 @@ defmodule Saas101.Accounts do
   end
 
   defp do_create_account(tenant, repo, params) do
-    pow_config =
-      [
-        otp_app: @otp_app,
-        repo: repo,
-        user: User,
-        repo_opts: [prefix: tenant]
-      ]
+    pow_config = [
+      otp_app: @otp_app,
+      repo: repo,
+      user: User,
+      repo_opts: [prefix: tenant]
+    ]
 
     Ecto.Multi.new()
     |> Ecto.Multi.run(:triplex_migration, fn repo, %{} ->
@@ -39,7 +38,7 @@ defmodule Saas101.Accounts do
         {:ok, any}
 
       {:error, :triplex_migration, reason, _} ->
-        invalid_tenant_changeset_error(params, "couldn't be created", [reason: reason])
+        invalid_tenant_changeset_error(params, "couldn't be created", reason: reason)
 
       {:error, :user, changeset, _} ->
         {:error, changeset}

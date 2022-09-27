@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-
+      <th>Local</th>
       <th></th>
     </tr>
   </thead>
@@ -12,6 +12,7 @@
 <%= for cancha <- @canchas do %>
     <tr>
       <td><%= cancha.name %></td>
+      <td><%= cancha.local.name %></td>
 
       <td>
         <span><%= link "Show", to: Routes.cancha_path(@conn, :show, cancha) %></span>

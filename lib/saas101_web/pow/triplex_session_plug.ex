@@ -4,7 +4,7 @@ defmodule Saas101Web.Pow.TriplexSessionPlug do
   def call(conn, config) do
     tenant = conn.assigns[:current_tenant] || conn.assigns[:raw_current_tenant]
     prefix = Triplex.to_prefix(tenant)
-    config = Keyword.put(config, :repo_opts, [prefix: prefix])
+    config = Keyword.put(config, :repo_opts, prefix: prefix)
 
     Pow.Plug.Session.call(conn, config)
   end

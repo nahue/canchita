@@ -2,6 +2,7 @@ defmodule Saas101Web.CanchaController do
   use Saas101Web, :controller
 
   alias Saas101.Locales
+  alias Saas101.Locales.Local
   alias Saas101.Locales.Cancha
 
   def index(conn, _params) do
@@ -11,7 +12,8 @@ defmodule Saas101Web.CanchaController do
 
   def new(conn, _params) do
     changeset = Locales.change_cancha(%Cancha{})
-    render(conn, "new.html", changeset: changeset)
+    locales = Saas101.Repo.all(Local, prefix: conn.assigns[:current_tenant]) |> Enum.map(&{&1.name, &1.id})
+    render(conn, "new.html", changeset: changeset, locales: locales)
   end
 
   def create(conn, %{"cancha" => cancha_params}) do
@@ -33,8 +35,9 @@ defmodule Saas101Web.CanchaController do
 
   def edit(conn, %{"id" => id}) do
     cancha = Locales.get_cancha!(id, conn.assigns[:current_tenant])
+    locales = Saas101.Repo.all(Local, prefix: conn.assigns[:current_tenant]) |> Enum.map(&{&1.name, &1.id})
     changeset = Locales.change_cancha(cancha)
-    render(conn, "edit.html", cancha: cancha, changeset: changeset)
+    render(conn, "edit.html", cancha: cancha, changeset: changeset, locales: locales)
   end
 
   def update(conn, %{"id" => id, "cancha" => cancha_params}) do

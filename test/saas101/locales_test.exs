@@ -56,4 +56,58 @@ defmodule Saas101.LocalesTest do
       assert %Ecto.Changeset{} = Locales.change_cancha(cancha)
     end
   end
+
+  describe "locales" do
+    alias Saas101.Locales.Local
+
+    import Saas101.LocalesFixtures
+
+    @invalid_attrs %{name: nil}
+
+    test "list_locales/0 returns all locales" do
+      local = local_fixture()
+      assert Locales.list_locales() == [local]
+    end
+
+    test "get_local!/1 returns the local with given id" do
+      local = local_fixture()
+      assert Locales.get_local!(local.id) == local
+    end
+
+    test "create_local/1 with valid data creates a local" do
+      valid_attrs = %{name: "some name"}
+
+      assert {:ok, %Local{} = local} = Locales.create_local(valid_attrs)
+      assert local.name == "some name"
+    end
+
+    test "create_local/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Locales.create_local(@invalid_attrs)
+    end
+
+    test "update_local/2 with valid data updates the local" do
+      local = local_fixture()
+      update_attrs = %{name: "some updated name"}
+
+      assert {:ok, %Local{} = local} = Locales.update_local(local, update_attrs)
+      assert local.name == "some updated name"
+    end
+
+    test "update_local/2 with invalid data returns error changeset" do
+      local = local_fixture()
+      assert {:error, %Ecto.Changeset{}} = Locales.update_local(local, @invalid_attrs)
+      assert local == Locales.get_local!(local.id)
+    end
+
+    test "delete_local/1 deletes the local" do
+      local = local_fixture()
+      assert {:ok, %Local{}} = Locales.delete_local(local)
+      assert_raise Ecto.NoResultsError, fn -> Locales.get_local!(local.id) end
+    end
+
+    test "change_local/1 returns a local changeset" do
+      local = local_fixture()
+      assert %Ecto.Changeset{} = Locales.change_local(local)
+    end
+  end
 end

@@ -11,11 +11,22 @@
 # and so on) as they will fail if something goes wrong.
 alias Saas101.Repo
 alias Saas101.Users.User
-
+alias Saas101.Locales.Local
 
 Triplex.create("canchita")
 
-Repo.insert!(%User{
-  email: "test@test.com",
-  password_hash: "$pbkdf2-sha512$100000$fmyL2D4eBe6psZkQkaVsTw==$1X//1sv7wjwgdfHaQM7EEey5nL5tbCRCji4LD2IVi1Stg0zUajxLtAUQDTUvPB/x9X5QGHy9ODxqqdjdyK9Lvw=="
-}, prefix: Triplex.to_prefix("canchita"))
+Repo.insert!(
+  %User{
+    email: "test@test.com",
+    password_hash:
+      "$pbkdf2-sha512$100000$fmyL2D4eBe6psZkQkaVsTw==$1X//1sv7wjwgdfHaQM7EEey5nL5tbCRCji4LD2IVi1Stg0zUajxLtAUQDTUvPB/x9X5QGHy9ODxqqdjdyK9Lvw=="
+  },
+  prefix: Triplex.to_prefix("canchita")
+)
+
+Repo.insert!(
+  %Local{
+    name: "Local A"
+  },
+  prefix: Triplex.to_prefix("canchita")
+)

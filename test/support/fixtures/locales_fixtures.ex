@@ -17,4 +17,18 @@ defmodule Saas101.LocalesFixtures do
 
     cancha
   end
+
+  @doc """
+  Generate a local.
+  """
+  def local_fixture(attrs \\ %{}) do
+    {:ok, local} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> Saas101.Locales.create_local()
+
+    local
+  end
 end

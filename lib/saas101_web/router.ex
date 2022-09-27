@@ -26,6 +26,7 @@ defmodule Saas101Web.Router do
   pipeline :protected do
     plug :browser
     plug :put_root_layout, {Saas101Web.LayoutView, :protected}
+
     plug Pow.Plug.RequireAuthenticated,
       error_handler: Saas101Web.AuthErrorHandler
   end
@@ -38,6 +39,7 @@ defmodule Saas101Web.Router do
   scope "/app", Saas101Web do
     pipe_through :protected
     resources "/canchas", CanchaController
+    resources "/locales", LocalController
     get "/", DashboardController, :index
   end
 

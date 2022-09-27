@@ -1,0 +1,26 @@
+<h1>Listing Locales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for local <- @locales do %>
+    <tr>
+      <td><%= local.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.local_path(@conn, :show, local) %></span>
+        <span><%= link "Edit", to: Routes.local_path(@conn, :edit, local) %></span>
+        <span><%= link "Delete", to: Routes.local_path(@conn, :delete, local), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Local", to: Routes.local_path(@conn, :new) %></span>

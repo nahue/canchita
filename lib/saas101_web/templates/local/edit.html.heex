@@ -1,0 +1,5 @@
+<h1>Edit Local</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.local_path(@conn, :update, @local)) %>
+
+<span><%= link "Back", to: Routes.local_path(@conn, :index) %></span>
