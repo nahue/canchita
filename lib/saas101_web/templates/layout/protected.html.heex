@@ -21,15 +21,9 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
-
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+              <%= link "Principal", to: Routes.dashboard_path(@conn, :index), class: "#{if is_active(@conn, "app"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link "Locales", to: Routes.local_path(@conn, :index), class: "#{if is_active(@conn, "locales"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link "Canchas", to: Routes.cancha_path(@conn, :index), class: "#{if is_active(@conn, "canchas"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
             </div>
           </div>
         </div>
@@ -101,15 +95,9 @@
     <div class="md:hidden" id="mobile-menu">
       <div x-show="isProfileDropdownOpen" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+        <%= link "Principal", to: Routes.dashboard_path(@conn, :index), class: "#{if is_active(@conn, "app"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} block px-3 py-2 rounded-md text-base font-medium" %>
+        <%= link "Locales", to: Routes.local_path(@conn, :index), class: "#{if is_active(@conn, "locales"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} block px-3 py-2 rounded-md text-base font-medium" %>
+        <%= link "Canchas", to: Routes.cancha_path(@conn, :index), class: "#{if is_active(@conn, "canchas"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} block px-3 py-2 rounded-md text-base font-medium" %>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">
