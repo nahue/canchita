@@ -35,8 +35,9 @@ defmodule Saas101Web.Router do
       error_handler: Saas101Web.AuthErrorHandler
   end
 
-  scope "/dashboard", Saas101Web do
+  scope "/app", Saas101Web do
     pipe_through :protected
+    resources "/canchas", CanchaController
     get "/", DashboardController, :index
   end
 

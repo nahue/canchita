@@ -52,6 +52,7 @@ defmodule Saas101.MixProject do
       {:tailwind, "~> 0.1.9", runtime: Mix.env() == :dev},
       {:pow, "~> 1.0.27"},
       {:triplex, "~> 1.3.0-rc.1"},
+      {:timex, "~> 3.5"}
     ]
   end
 
