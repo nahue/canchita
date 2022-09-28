@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-screen">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -9,8 +9,8 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
-    <div class="min-h-full">
+  <body class="h-screen">
+    <div class="min-h-full bg-gray-100">
         <nav x-data="{isProfileDropdownOpen: false}" class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -22,6 +22,7 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <%= link "Principal", to: Routes.dashboard_path(@conn, :index), class: "#{if is_active(@conn, "app"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link "Clientes", to: Routes.cliente_path(@conn, :index), class: "#{if is_active(@conn, "clientes"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link "Locales", to: Routes.local_path(@conn, :index), class: "#{if is_active(@conn, "locales"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link "Canchas", to: Routes.cancha_path(@conn, :index), class: "#{if is_active(@conn, "canchas"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
             </div>

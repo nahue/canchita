@@ -7,6 +7,12 @@ defmodule Saas101Web.Router do
     plug :fetch_live_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_current_tenant
+  end
+
+  defp fetch_current_tenant(conn, _) do
+    conn
+    |> put_session(:current_tenant, conn.assigns[:current_tenant])
   end
 
   pipeline :public do
@@ -40,6 +46,7 @@ defmodule Saas101Web.Router do
     pipe_through :protected
     resources "/canchas", CanchaController
     resources "/locales", LocalController
+    resources "/clientes", ClienteController
     get "/", DashboardController, :index
   end
 

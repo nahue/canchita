@@ -1,18 +1,29 @@
-<h1>Listing Canchas</h1>
 
-<table>
-  <thead>
+<div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+    <h1 class="text-xl font-semibold text-gray-900">Canchas</h1>
+    <p class="mt-2 text-sm text-gray-700">Lista de canchas.</p>
+    </div>
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+    <%= link "Agregar Cancha", to: Routes.cancha_path(@conn, :new), class: "inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto" %>
+    </div>
+</div>
+
+<div class="mt-8">
+
+<table class="min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
     <tr>
-      <th>Name</th>
-      <th>Local</th>
+      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nombre</th>
+      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Local</th>
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="bg-white">
 <%= for cancha <- @canchas do %>
     <tr>
-      <td><%= cancha.name %></td>
-      <td><%= cancha.local.name %></td>
+      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= cancha.name %></td>
+      <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= cancha.local.name %></td>
 
       <td>
         <span><%= link "Show", to: Routes.cancha_path(@conn, :show, cancha) %></span>
@@ -23,5 +34,4 @@
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Cancha", to: Routes.cancha_path(@conn, :new) %></span>
+</div>

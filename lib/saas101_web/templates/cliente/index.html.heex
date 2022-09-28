@@ -1,0 +1,30 @@
+<h1>Listing Clientes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cliente <- @clientes do %>
+    <tr>
+      <td><%= cliente.name %></td>
+      <td><%= cliente.email %></td>
+      <td><%= cliente.phone %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.cliente_path(@conn, :show, cliente) %></span>
+        <span><%= link "Edit", to: Routes.cliente_path(@conn, :edit, cliente) %></span>
+        <span><%= link "Delete", to: Routes.cliente_path(@conn, :delete, cliente), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Cliente", to: Routes.cliente_path(@conn, :new) %></span>
