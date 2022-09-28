@@ -15,7 +15,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   end
 
   def create(conn, %{<%= inspect schema.singular %> => <%= schema.singular %>_params}) do
-    case <%= inspect context.alias %>.create_<%= schema.singular %>(<%= schema.singular %>_params) do
+    case <%= inspect context.alias %>.create_<%= schema.singular %>(<%= schema.singular %>_params, conn.assigns[:current_tenant]) do
       {:ok, <%= schema.singular %>} ->
         conn
         |> put_flash(:info, "<%= schema.human_singular %> created successfully.")
@@ -27,20 +27,20 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   end
 
   def show(conn, %{"id" => id}) do
-    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id)
+    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id, conn.assigns[:current_tenant])
     render(conn, "show.html", <%= schema.singular %>: <%= schema.singular %>)
   end
 
   def edit(conn, %{"id" => id}) do
-    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id)
+    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id, conn.assigns[:current_tenant])
     changeset = <%= inspect context.alias %>.change_<%= schema.singular %>(<%= schema.singular %>)
     render(conn, "edit.html", <%= schema.singular %>: <%= schema.singular %>, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, <%= inspect schema.singular %> => <%= schema.singular %>_params}) do
-    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id)
+    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id, conn.assigns[:current_tenant])
 
-    case <%= inspect context.alias %>.update_<%= schema.singular %>(<%= schema.singular %>, <%= schema.singular %>_params) do
+    case <%= inspect context.alias %>.update_<%= schema.singular %>(<%= schema.singular %>, <%= schema.singular %>_params, conn.assigns[:current_tenant]) do
       {:ok, <%= schema.singular %>} ->
         conn
         |> put_flash(:info, "<%= schema.human_singular %> updated successfully.")

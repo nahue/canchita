@@ -76,7 +76,7 @@ defmodule Mix.Tasks.Saas101.Gen.Html do
   use Mix.Task
 
   alias Mix.Phoenix.{Context, Schema}
-  alias Mix.Tasks.Phx.Gen
+  alias Mix.Tasks.Saas101.Gen
 
   @doc false
   def run(args) do
