@@ -1,0 +1,26 @@
+<h1>Listing Pruebas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for prueba <- @pruebas do %>
+    <tr>
+      <td><%= prueba.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.prueba_path(@conn, :show, prueba) %></span>
+        <span><%= link "Edit", to: Routes.prueba_path(@conn, :edit, prueba) %></span>
+        <span><%= link "Delete", to: Routes.prueba_path(@conn, :delete, prueba), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Prueba", to: Routes.prueba_path(@conn, :new) %></span>

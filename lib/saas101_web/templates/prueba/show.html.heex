@@ -1,0 +1,13 @@
+<h1>Show Prueba</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @prueba.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.prueba_path(@conn, :edit, @prueba) %></span> |
+<span><%= link "Back", to: Routes.prueba_path(@conn, :index) %></span>
