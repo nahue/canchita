@@ -1,0 +1,18 @@
+<h1>Show Court</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @court.name %>
+  </li>
+
+  <li>
+    <strong>Local:</strong>
+    <%= @court.venue.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.court_path(@conn, :edit, @court) %></span> |
+<span><%= link "Back", to: Routes.court_path(@conn, :index) %></span>

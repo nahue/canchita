@@ -38,8 +38,8 @@ defmodule Saas101Web.Router do
 
   scope "/app", Saas101Web do
     pipe_through :protected
-    resources "/canchas", CanchaController
-    resources "/locales", LocalController
+    resources "/canchas", CourtController
+    resources "/locales", VenueController
     resources "/clientes", ClienteController
     resources "/turnos", ReservationController
     get "/", DashboardController, :index

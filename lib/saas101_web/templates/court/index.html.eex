@@ -1,0 +1,26 @@
+<h1>Listing Courts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for court <- @courts do %>
+    <tr>
+      <td><%= court.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.court_path(@conn, :show, court) %></span>
+        <span><%= link "Edit", to: Routes.court_path(@conn, :edit, court) %></span>
+        <span><%= link "Delete", to: Routes.court_path(@conn, :delete, court), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Court", to: Routes.court_path(@conn, :new) %></span>

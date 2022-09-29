@@ -1,16 +1,16 @@
-defmodule Saas101.Locales.Local do
+defmodule Saas101.Settings.Venue do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "locales" do
+  schema "venues" do
     field :name, :string
-    has_many :canchas, Saas101.Locales.Cancha
+    has_many :courts, Saas101.Settings.Court
     timestamps()
   end
 
   @doc false
-  def changeset(local, attrs) do
-    local
+  def changeset(venue, attrs) do
+    venue
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end

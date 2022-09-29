@@ -1,0 +1,26 @@
+<h1>Listing Venues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for venue <- @venues do %>
+    <tr>
+      <td><%= venue.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.venue_path(@conn, :show, venue) %></span>
+        <span><%= link "Edit", to: Routes.venue_path(@conn, :edit, venue) %></span>
+        <span><%= link "Delete", to: Routes.venue_path(@conn, :delete, venue), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Venue", to: Routes.venue_path(@conn, :new) %></span>
