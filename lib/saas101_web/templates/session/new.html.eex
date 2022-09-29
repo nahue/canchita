@@ -1,7 +1,7 @@
 <div class="flex flex-col">
 <div class="mt-20">
     <h2 class="text-lg font-semibold text-gray-900">
-        Sign in to your account
+        <%= gettext("Sign in to your account")%>
     </h2>
     <p class="mt-2 text-sm text-gray-700">
         Don’t have an account?

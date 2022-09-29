@@ -1,0 +1,18 @@
+<h1>Show <%= gettext("Reservation") %></h1>
+
+<ul>
+
+  <li>
+    <strong><%= gettext("Name") %>:</strong>
+    <%= @reservation.name %>
+  </li>
+
+  <li>
+    <strong><%= gettext("Date") %>:</strong>
+    <%= @reservation.date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.reservation_path(@conn, :edit, @reservation) %></span> |
+<span><%= link "Back", to: Routes.reservation_path(@conn, :index) %></span>

@@ -5,13 +5,13 @@
     </div>
   <% end %>
 
-  <%= label f, :start %>
-  <%= text_input f, :start %>
-  <%= error_tag f, :start %>
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
 
-  <%= label f, :end %>
-  <%= text_input f, :end %>
-  <%= error_tag f, :end %>
+  <%= label f, :date %>
+  <%= date_select f, :date %>
+  <%= error_tag f, :date %>
 
   <div>
     <%= submit "Save" %>

@@ -10,6 +10,9 @@ import Config
 config :saas101,
   ecto_repos: [Saas101.Repo]
 
+config :saas101, Saas101Web.Gettext,
+  default_locale: "es"
+
 # Configures the endpoint
 config :saas101, Saas101Web.Endpoint,
   url: [host: "localhost"],

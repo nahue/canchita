@@ -1,8 +1,8 @@
-defmodule Saas101.Repo.Migrations.CreateTurnos do
+defmodule Saas101.Repo.Migrations.CreateReservations do
   use Ecto.Migration
 
   def change do
-    create table(:turnos) do
+    create table(:reservations) do
       add :name, :string
       add :date, :date
       add :cancha_id, references(:canchas, on_delete: :nothing)
@@ -10,6 +10,6 @@ defmodule Saas101.Repo.Migrations.CreateTurnos do
       timestamps()
     end
 
-    create index(:turnos, [:cancha_id])
+    create index(:reservations, [:cancha_id])
   end
 end

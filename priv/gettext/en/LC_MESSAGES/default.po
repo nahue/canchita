@@ -1,0 +1,54 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#: lib/saas101_web/templates/page/index.html.heex:2
+#, elixir-autogen, elixir-format
+msgid "Welcome to %{name}!"
+msgstr ""
+
+#: lib/saas101_web/templates/reservation/index.html.eex:1
+#, elixir-autogen, elixir-format
+msgid "Reservations"
+msgstr ""
+
+#: lib/saas101_web/auth_error_handler.ex:8
+#, elixir-autogen, elixir-format
+msgid "You've to be authenticated first"
+msgstr ""
+
+#: lib/saas101_web/templates/session/new.html.eex:4
+#, elixir-autogen, elixir-format
+msgid "Sign in to your account"
+msgstr ""
+
+#: lib/saas101_web/templates/reservation/index.html.eex:6
+#: lib/saas101_web/templates/reservation/show.html.eex:6
+#, elixir-autogen, elixir-format
+msgid "Name"
+msgstr ""
+
+#: lib/saas101_web/templates/reservation/index.html.eex:7
+#: lib/saas101_web/templates/reservation/show.html.eex:11
+#, elixir-autogen, elixir-format
+msgid "Date"
+msgstr ""
+
+#: lib/saas101_web/templates/reservation/show.html.eex:1
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Reservation"
+msgstr ""
+
+#: lib/saas101_web/auth_error_handler.ex:15
+#, elixir-autogen, elixir-format
+msgid "You're already authenticated"
+msgstr ""

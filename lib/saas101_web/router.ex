@@ -41,8 +41,7 @@ defmodule Saas101Web.Router do
     resources "/canchas", CanchaController
     resources "/locales", LocalController
     resources "/clientes", ClienteController
-    resources "/turnos", TurnoController
-    resources "/horarios", HorarioController
+    resources "/turnos", ReservationController
     get "/", DashboardController, :index
   end
 
