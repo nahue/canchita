@@ -1,13 +1,42 @@
 <h1>Show Venue</h1>
 
-<ul>
+<div class="mt-10 space-y-24 pb-px">
+    <section>
+        <div class="grid grid-cols-[1fr,auto] items-center">
+            <div class="flex min-w-0">
+                <h2 class="truncate text-base font-medium leading-7 text-slate-900">
+                    Datos
+                </h2>
+            </div>
+            <div class="col-span-2 row-start-2 min-w-0 mt-10">
+                <strong>Name:</strong>
+                <%= @venue.name %>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="grid grid-cols-[1fr,auto] items-center">
+            <div class="flex min-w-0">
+                <h2 class="truncate text-base font-medium leading-7 text-slate-900">
+                    Canchas
+                </h2>
+            </div>
+            <div class="col-span-2 row-start-2 min-w-0">
 
-  <li>
-    <strong>Name:</strong>
-    <%= @venue.name %>
-  </li>
+                <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <%= for court <- @venue.courts do %>
+            <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow">
+            <div class="flex w-full items-center justify-between space-x-6 p-6">
+                <%= court.name %>
+                </div>
+            </li>
+        <% end %>
+    </ul>
 
-</ul>
+            </div>
+        </div>
+    </section>
+</div>
 
 <span><%= link "Edit", to: Routes.venue_path(@conn, :edit, @venue) %></span> |
 <span><%= link "Back", to: Routes.venue_path(@conn, :index) %></span>

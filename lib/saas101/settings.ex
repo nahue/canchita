@@ -35,7 +35,7 @@ defmodule Saas101.Settings do
       ** (Ecto.NoResultsError)
 
   """
-  def get_venue!(id, prefix), do: Repo.get!(Venue, id, prefix: prefix)
+  def get_venue!(id, prefix), do: Repo.get!(Venue, id, prefix: prefix) |> Repo.preload([:courts])
 
   @doc """
   Creates a venue.
