@@ -1,0 +1,18 @@
+<h1>Show Horario</h1>
+
+<ul>
+
+  <li>
+    <strong>Start:</strong>
+    <%= @horario.start %>
+  </li>
+
+  <li>
+    <strong>End:</strong>
+    <%= @horario.end %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.horario_path(@conn, :edit, @horario) %></span> |
+<span><%= link "Back", to: Routes.horario_path(@conn, :index) %></span>

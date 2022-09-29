@@ -1,0 +1,5 @@
+<h1>Edit Horario</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.horario_path(@conn, :update, @horario)) %>
+
+<span><%= link "Back", to: Routes.horario_path(@conn, :index) %></span>

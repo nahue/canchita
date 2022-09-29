@@ -22,6 +22,7 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <%= link "Principal", to: Routes.dashboard_path(@conn, :index), class: "#{if is_active(@conn, "app"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link "Turnos", to: Routes.turno_path(@conn, :index), class: "#{if is_active(@conn, "turnos"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link "Clientes", to: Routes.cliente_path(@conn, :index), class: "#{if is_active(@conn, "clientes"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link "Locales", to: Routes.local_path(@conn, :index), class: "#{if is_active(@conn, "locales"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>
               <%= link "Canchas", to: Routes.cancha_path(@conn, :index), class: "#{if is_active(@conn, "canchas"), do: 'bg-gray-900 text-white', else: 'text-gray-300 hover:text-white'} hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium" %>

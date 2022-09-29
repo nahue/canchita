@@ -52,8 +52,8 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   end
 
   def delete(conn, %{"id" => id}) do
-    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id)
-    {:ok, _<%= schema.singular %>} = <%= inspect context.alias %>.delete_<%= schema.singular %>(<%= schema.singular %>)
+    <%= schema.singular %> = <%= inspect context.alias %>.get_<%= schema.singular %>!(id, conn.assigns[:current_tenant])
+    {:ok, _<%= schema.singular %>} = <%= inspect context.alias %>.delete_<%= schema.singular %>(<%= schema.singular %>, conn.assigns[:current_tenant])
 
     conn
     |> put_flash(:info, "<%= schema.human_singular %> deleted successfully.")
