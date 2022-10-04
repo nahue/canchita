@@ -63,7 +63,7 @@
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                <%= link "Logout", to: Routes.logout_path(@conn, :delete), method: :delete, class: "block px-4 py-2 text-sm text-gray-700" %>
+                <%= link "Salir", to: Routes.logout_path(@conn, :delete), method: :delete, class: "block px-4 py-2 text-sm text-gray-700" %>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
 
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
-        <%= link "Logout", to: Routes.logout_path(@conn, :delete), method: :delete, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700" %>
+        <%= link "Salir", to: Routes.logout_path(@conn, :delete), method: :delete, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700" %>
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@
         <nav>
           <ul>
           <%= if Pow.Plug.current_user(@conn) do %>
-            <li><%= link "Logout", to: Routes.logout_path(@conn, :delete), method: :delete %></li>
+            <li><%= link "Salir", to: Routes.logout_path(@conn, :delete), method: :delete %></li>
           <% else %>
             <li><%= link "Login", to: Routes.login_path(@conn, :new) %></li>
           <% end %>

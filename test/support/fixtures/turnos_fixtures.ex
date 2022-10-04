@@ -33,19 +33,4 @@ defmodule Saas101.TurnosFixtures do
 
     turno
   end
-
-  @doc """
-  Generate a turno.
-  """
-  def turno_fixture(attrs \\ %{}) do
-    {:ok, turno} =
-      attrs
-      |> Enum.into(%{
-        date: ~N[2022-09-28 00:06:00],
-        name: "some name"
-      })
-      |> Saas101.Turnos.create_turno()
-
-    turno
-  end
 end

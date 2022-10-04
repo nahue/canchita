@@ -14,11 +14,6 @@ defmodule Saas101Web.Router do
     plug :put_root_layout, {Saas101Web.LayoutView, :root}
   end
 
-  pipeline :auth do
-    plug :browser
-    plug :put_root_layout, {Saas101Web.LayoutView, :auth}
-  end
-
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -46,23 +41,18 @@ defmodule Saas101Web.Router do
   end
 
   scope "/", Saas101Web do
-    pipe_through [:public, :not_authenticated]
-    get "/", PageController, :index
+    pipe_through [:public, :protected]
+    delete "/logout", SessionController, :delete, as: :logout
   end
 
   scope "/", Saas101Web do
-    pipe_through [:auth, :not_authenticated]
-
+    pipe_through [:public, :not_authenticated]
+    get "/", PageController, :index
     get "/signup", RegistrationController, :new, as: :signup
     post "/signup", RegistrationController, :create, as: :signup
     get "/login", SessionController, :new, as: :login
     post "/login", SessionController, :create, as: :login
-  end
-
-  scope "/", Saas101Web do
-    pipe_through [:auth, :protected]
-
-    delete "/logout", SessionController, :delete, as: :logout
+    # forward "/", Plugs.WelcomePageRedirector
   end
 
   # Other scopes may use custom stacks.

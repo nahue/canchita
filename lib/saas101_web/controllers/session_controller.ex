@@ -1,5 +1,6 @@
 defmodule Saas101Web.SessionController do
   use Saas101Web, :controller
+  plug :put_root_layout, {Saas101Web.LayoutView, :auth}
 
   def new(conn, _params) do
     changeset = Pow.Plug.change_user(conn)
