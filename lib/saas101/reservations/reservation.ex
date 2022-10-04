@@ -5,7 +5,7 @@ defmodule Saas101.Reservations.Reservation do
   schema "reservations" do
     field :date, :date
     field :name, :string
-    field :cancha_id, :id
+    belongs_to :court, Saas101.Settings.Court, foreign_key: :court_id
 
     timestamps()
   end
@@ -13,7 +13,7 @@ defmodule Saas101.Reservations.Reservation do
   @doc false
   def changeset(reservation, attrs) do
     reservation
-    |> cast(attrs, [:name, :date])
-    |> validate_required([:name, :date])
+    |> cast(attrs, [:name, :date, :court_id])
+    |> validate_required([:name, :date, :court_id])
   end
 end

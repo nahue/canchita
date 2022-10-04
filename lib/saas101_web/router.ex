@@ -47,12 +47,12 @@ defmodule Saas101Web.Router do
 
   scope "/", Saas101Web do
     pipe_through [:public, :not_authenticated]
-    get "/", PageController, :index
+    # get "/", PageController, :index
     get "/signup", RegistrationController, :new, as: :signup
     post "/signup", RegistrationController, :create, as: :signup
     get "/login", SessionController, :new, as: :login
     post "/login", SessionController, :create, as: :login
-    # forward "/", Plugs.WelcomePageRedirector
+    forward "/", Plugs.WelcomePageRedirector
   end
 
   # Other scopes may use custom stacks.

@@ -11,7 +11,7 @@
 # and so on) as they will fail if something goes wrong.
 alias Saas101.Repo
 alias Saas101.Users.User
-alias Saas101.Settings.Venue
+alias Saas101.Settings.{Venue, Court}
 
 Triplex.create("canchita")
 
@@ -24,9 +24,17 @@ Repo.insert!(
   prefix: Triplex.to_prefix("canchita")
 )
 
-Repo.insert!(
+venue = Repo.insert!(
   %Venue{
     name: "Local A"
+  },
+  prefix: Triplex.to_prefix("canchita")
+)
+
+Repo.insert!(
+  %Court{
+    name: "Cancha A",
+    venue: venue
   },
   prefix: Triplex.to_prefix("canchita")
 )

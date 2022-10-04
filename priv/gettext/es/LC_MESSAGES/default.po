@@ -52,3 +52,13 @@ msgstr "Reserva"
 #, elixir-autogen, elixir-format
 msgid "You're already authenticated"
 msgstr ""
+
+#: lib/saas101_web/templates/venue/show.html.eex:7
+#, elixir-autogen, elixir-format
+msgid "New Court"
+msgstr "Nueva Cancha"
+
+#: lib/saas101_web/templates/layout/protected.html.heex:152
+#, elixir-autogen, elixir-format
+msgid "Dashboard"
+msgstr ""
