@@ -6,14 +6,84 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-  </body>
-</html>
+    <header>
+      <!--<p>Signed as
+        <%= Current.user.email %></p>-->
+      <nav class="bg-gray-800">
+        <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="relative flex items-center justify-between h-16">
+            <div
+              class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start"
+            >
+              <div class="flex items-center flex-shrink-0">
+                <img
+                  class="w-auto h-8"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  alt="Your Company"
+                >
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                  <div class="flex space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default:
+                  "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a
+                    href="<%= url_for root_path %>"
+                    class="px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-md "
+                    aria-current="page"
+                  >Dashboard</a>
+                    <%= link_to "Venues",
+                    venues_path,
+                    class:
+                        "px-3
+                        py-2
+                        text-sm
+                        font-medium
+                        text-gray-300
+                        rounded-md
+                        hover:bg-gray-700
+                        hover:text-white"
+
+                        %>
+                  </div>
+                </div>
+                <!--
+              <h2>Login and verification</h2>
+
+              <div>
+                <%= link_to "Change password", edit_password_path %>
+              </div>
+
+              <div>
+                <%= link_to "Change email address", edit_identity_email_path %>
+              </div>
+
+              <div>
+                <%= link_to "Send invitation", new_invitation_path %>
+              </div>
+
+              <%= button_to "Signin as last user", user_masquerade_path(User.last) %>
+
+              <h2>Access history</h2>
+
+              <div>
+                <%= link_to "Devices & Sessions", sessions_path %>
+              </div>
+
+              <br>
+
+              <%= button_to "Log out", Current.session, method: :delete %>
+              -->
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="container flex px-5 mx-auto mt-28">
+        <%= yield %>
+      </main>
+    </body>
+  </html>
