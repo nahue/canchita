@@ -48,24 +48,6 @@
                         %>
                   </div>
                 </div>
-                <!--<h2>Login and verification</h2>
-                <div>
-                  <%= link_to "Change password", edit_password_path %>
-                </div>
-                <div>
-                  <%= link_to "Change email address", edit_identity_email_path %>
-                </div>
-                <div>
-                  <%= link_to "Send invitation", new_invitation_path %>
-                </div>
-                <%= button_to "Signin as last user", user_masquerade_path(User.last) %>
-                <h2>Access history</h2>
-                <div>
-                  <%= link_to "Devices & Sessions", sessions_path %>
-                </div>
-                <br>
-                <%= button_to "Log out", Current.session, method: :delete %>
-              </div>-->
               </div>
               <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div class="relative ml-3" data-controller="dropdown">
@@ -79,12 +61,12 @@
                   <div data-dropdown-target="menu" class="absolute right-0 z-10 hidden w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     <!--<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>-->
-                    <%= link_to "Change password", edit_password_path, class: "block px-4 py-2 text-sm text-gray-700" %>
-                    <%= link_to "Change email address", edit_identity_email_path, class: "block px-4 py-2 text-sm text-gray-700" %>
-                    <%= link_to "Send invitation", new_invitation_path, class: "block px-4 py-2 text-sm text-gray-700" %>
-                    <%= button_to "Signin as last user", user_masquerade_path(User.last), class: "block px-4 py-2 text-sm text-gray-700" %>
-                    <%= link_to "Devices & Sessions", sessions_path, class: "block px-4 py-2 text-sm text-gray-700" %>
-                    <%= button_to "Log out", Current.session, method: :delete, class: "block px-4 py-2 text-sm text-gray-700" %>
+                    <%= link_to "Change password", edit_password_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
+                    <%= link_to "Change email address", edit_identity_email_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
+                    <%= link_to "Send invitation", new_invitation_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
+                    <%= button_to "Signin as last user", user_masquerade_path(User.last), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
+                    <%= link_to "Devices & Sessions", sessions_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
+                    <%= button_to "Log out", Current.session, method: :delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left" %>
                   </div>
                 </div>
               </div>
