@@ -49,6 +49,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_001042) do
   create_table "reservations", force: :cascade do |t|
     t.integer "venue_id"
     t.integer "asignee_id"
+    t.datetime "start_at", null: false
+    t.datetime "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["asignee_id"], name: "index_reservations_on_asignee_id"

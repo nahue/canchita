@@ -15,9 +15,15 @@ v = Venue.find_or_create_by!(name: "The Venue") do |v|
   )
 end
 
+a1 = Asignee.find_or_create_by!(name: "Profe de Prueba", is_coach: true)
+a2 = Asignee.find_or_create_by!(name: "Profe de Prueba 2", is_coach: true)
+
 v = Venue.find_or_create_by!(name: "Cochocho Vargas") do |v|
   v.cover.attach(
     io:  File.open(File.join(Rails.root,'app/assets/images/cochocho_vargas.jpg')),
     filename: 'photo.jpg'
   )
+
 end
+Reservation.create asignee: a1, venue: v, start_at: DateTime.now
+Reservation.create asignee: a2, venue: v, start_at: DateTime.now
