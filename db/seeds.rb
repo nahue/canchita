@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
+user = User.create! :name => 'John Doe', :email => 'john@gmail.com', :password => '123demo123', :password_confirmation => '123demo123'
+
 v = Venue.find_or_create_by!(name: "The Venue") do |v|
   v.cover.attach(
     io:  File.open(File.join(Rails.root,'app/assets/images/multi-sport-4.jpg')),
