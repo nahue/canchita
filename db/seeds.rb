@@ -8,24 +8,32 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
-user = User.create! :name => 'John Doe', :email => 'john@gmail.com', :password => '123demo123', :password_confirmation => '123demo123'
-
-v = Venue.find_or_create_by!(name: "The Venue") do |v|
-  v.cover.attach(
-    io:  File.open(File.join(Rails.root,'app/assets/images/multi-sport-4.jpg')),
-    filename: 'photo.jpg'
-  )
+def setup_initial_user
+  User.create :name => 'John Doe', :email => 'john@gmail.com', :password => '123demo123', :password_confirmation => '123demo123'
 end
 
-a1 = Asignee.find_or_create_by!(name: "Profe de Prueba", is_coach: true)
-a2 = Asignee.find_or_create_by!(name: "Profe de Prueba 2", is_coach: true)
+user = setup_initial_user
 
-v = Venue.find_or_create_by!(name: "Cochocho Vargas") do |v|
-  v.cover.attach(
-    io:  File.open(File.join(Rails.root,'app/assets/images/cochocho_vargas.jpg')),
-    filename: 'photo.jpg'
-  )
+v1 = Venue.create! name: "The Venue"
+v1.cover.attach(
+  io:  File.open(File.join(Rails.root,'app/assets/images/multi-sport-4.jpg')),
+  filename: 'venue1.jpg'
+)
 
-end
-Reservation.create asignee: a1, venue: v, start_at: DateTime.now
-Reservation.create asignee: a2, venue: v, start_at: DateTime.now
+a1 = Asignee.create! name: "Profe de Prueba", is_coach: true
+a2 = Asignee.create! name: "Profe de Prueba 2", is_coach: true
+
+v2 = Venue.create! name: "Cochocho Vargas"
+v2.cover.attach(
+  io:  File.open(File.join(Rails.root,'app/assets/images/cochocho_vargas.jpg')),
+  filename: 'cochocho_vargas.jpg'
+)
+
+
+r = Reservation.new
+r.asignee_id = a1.id
+r.venue_id = v1.id
+r.start_at = DateTime.now
+r.save
+
+Reservation.create! asignee: a2, venue: v2, start_at: DateTime.now

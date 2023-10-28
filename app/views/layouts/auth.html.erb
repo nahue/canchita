@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full antialiased bg-white scroll-smooth">
   <head>
     <title>Canchita</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <main class="container flex px-5 mx-auto mt-28">
-      <%= yield %>
-    </main>
+  <body class="flex flex-col h-full">
+    <div class="relative flex justify-center min-h-full md:px-12 lg:px-0">
+      <div class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-white shadow-2xl sm:justify-center md:flex-none md:px-28">
+        <main class="w-full max-w-md mx-auto sm:px-4 md:w-96 md:max-w-sm md:px-0">
+          <%= yield %>
+        </main>
+      </div>
+      <div class="hidden sm:contents lg:relative lg:block lg:flex-1"></div>
+    </div>
   </body>
 </html>
