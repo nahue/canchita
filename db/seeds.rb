@@ -14,8 +14,8 @@ end
 
 user = setup_initial_user
 
-v1 = Venue.create! name: "The Venue"
-v1.cover.attach(
+location1 = Location.create! name: "The Location"
+location1.cover.attach(
   io:  File.open(File.join(Rails.root,'app/assets/images/multi-sport-4.jpg')),
   filename: 'venue1.jpg'
 )
@@ -23,8 +23,8 @@ v1.cover.attach(
 a1 = Asignee.create! name: "Profe de Prueba", is_coach: true
 a2 = Asignee.create! name: "Profe de Prueba 2", is_coach: true
 
-v2 = Venue.create! name: "Cochocho Vargas"
-v2.cover.attach(
+location2 = Location.create! name: "Cochocho Vargas"
+location2.cover.attach(
   io:  File.open(File.join(Rails.root,'app/assets/images/cochocho_vargas.jpg')),
   filename: 'cochocho_vargas.jpg'
 )
@@ -32,8 +32,8 @@ v2.cover.attach(
 
 r = Reservation.new
 r.asignee_id = a1.id
-r.venue_id = v1.id
+r.location = location1
 r.start_at = DateTime.now
 r.save
 
-Reservation.create! asignee: a2, venue: v2, start_at: DateTime.now
+Reservation.create! asignee: a2, location: location2, start_at: DateTime.now

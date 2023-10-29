@@ -1,4 +1,4 @@
 class Asignee < ApplicationRecord
   has_many :reservations
-  has_many :venues, :through => :reservations
+  has_many :locations, :through => :reservations
 end

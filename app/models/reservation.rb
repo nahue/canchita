@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
-  belongs_to :venue
+  belongs_to :location
   belongs_to :asignee
 end
