@@ -4,6 +4,8 @@ class User < ApplicationRecord
   generates_token_for :email_verification, expires_in: 2.days { email }
   generates_token_for :password_reset, expires_in: 20.minutes { password_salt.last(10) }
 
+  enum :user_type, %i[regular coach]
+
   has_many :sessions, dependent: :destroy
   has_many :bookings
 

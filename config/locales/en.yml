@@ -28,6 +28,12 @@
 #       enabled: "ON"
 
 en:
+  activerecord:
+    attributes:
+      user:
+        types:
+          regular: "Regular"
+          coach: "Coach"
   hello: "Hello world"
   bookings: "Bookings"
   name: "Name"

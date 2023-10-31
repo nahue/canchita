@@ -9,19 +9,19 @@
 #   end
 #
 
-user = User.create :name => 'John Doe', :email => 'john@gmail.com', :password => '123demo123', :password_confirmation => '123demo123'
+user = User.create name: 'John Doe', email: 'john@gmail.com', password: '123demo123', password_confirmation: '123demo123'
 
-location1 = Location.create! name: "The Location"
+location1 = Location.create! name: 'The Location'
 location1.cover.attach(
   io: File.open(File.join(Rails.root, 'app/assets/images/multi-sport-4.jpg')),
   filename: 'location1.jpg'
 )
 
-location2 = Location.create! name: "Cochocho Vargas"
+location2 = Location.create! name: 'Cochocho Vargas'
 location2.cover.attach(
   io: File.open(File.join(Rails.root, 'app/assets/images/cochocho_vargas.jpg')),
   filename: 'cochocho_vargas.jpg'
 )
 
-Booking.create!(user: user, location: location1, start_at: DateTime.now)
-Booking.create!(user: user, location: location2, start_at: DateTime.now)
+Booking.create!(user:, location: location1, start_at: DateTime.now, end_at: DateTime.tomorrow)
+Booking.create!(user:, location: location2, start_at: DateTime.now, end_at: DateTime.tomorrow)

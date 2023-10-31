@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_232645) do
     t.integer "location_id"
     t.integer "user_id", null: false
     t.datetime "start_at", null: false
-    t.datetime "end_at"
+    t.datetime "end_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_bookings_on_location_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_232645) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", null: false
+    t.integer "user_type", default: 0
     t.string "password_digest", null: false
     t.boolean "verified", default: false, null: false
     t.datetime "created_at", null: false
