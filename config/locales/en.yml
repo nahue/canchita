@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  bookings: "Bookings"
+  name: "Name"

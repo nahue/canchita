@@ -39,26 +39,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_232645) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "asignees", force: :cascade do |t|
-    t.string "name"
-    t.boolean "is_coach"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
-    t.integer "asignee_id"
+    t.integer "user_id", null: false
     t.datetime "start_at", null: false
     t.datetime "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asignee_id"], name: "index_bookings_on_asignee_id"
     t.index ["location_id"], name: "index_bookings_on_location_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,5 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_232645) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "users"
   add_foreign_key "sessions", "users"
 end

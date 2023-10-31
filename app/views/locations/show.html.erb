@@ -5,11 +5,11 @@
     <% end %>
     <%= render @location %>
     <% unless @location.bookings.empty? %>
-      <h2>Asignees</h2>
+      <h2><%= t('bookings') %></h2>
       <div class="grid w-full grid-cols-3">
         <%= render @location.bookings %>
       </div>
-    <% end%>
+    <% end %>
     <%= link_to "Edit this location", edit_location_path(@location), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to "Destroy this location", location_path(@location), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
