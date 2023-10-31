@@ -46,21 +46,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_232645) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reservations", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
     t.integer "asignee_id"
     t.datetime "start_at", null: false
     t.datetime "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asignee_id"], name: "index_reservations_on_asignee_id"
-    t.index ["location_id"], name: "index_reservations_on_location_id"
+    t.index ["asignee_id"], name: "index_bookings_on_asignee_id"
+    t.index ["location_id"], name: "index_bookings_on_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|

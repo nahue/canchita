@@ -4,10 +4,10 @@
       <p class="inline-block px-3 py-2 mb-5 font-medium text-green-500 rounded-lg bg-green-50" id="notice"><%= notice %></p>
     <% end %>
     <%= render @location %>
-    <% unless @location.reservations.empty? %>
+    <% unless @location.bookings.empty? %>
       <h2>Asignees</h2>
       <div class="grid w-full grid-cols-3">
-        <%= render @location.reservations %>
+        <%= render @location.bookings %>
       </div>
     <% end%>
     <%= link_to "Edit this location", edit_location_path(@location), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

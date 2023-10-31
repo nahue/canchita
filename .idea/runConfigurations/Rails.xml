@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Rails" type="CompoundRunConfigurationType">
+    <toRun name="Rails app" type="RailsRunConfigurationType" />
+    <toRun name="Tailwind" type="RakeRunConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

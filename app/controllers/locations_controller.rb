@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_venue, only: %i[show edit update destroy]
+  before_action :set_location, only: %i[show edit update destroy]
 
   # GET /locations or /locations.json
   def index
@@ -19,11 +19,11 @@ class LocationsController < ApplicationController
 
   # POST /locations or /locations.json
   def create
-    @location = Location.new(venue_params)
+    @location = Location.new(location_params)
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to venue_url(@location), notice: 'Location was successfully created.' }
+        format.html { redirect_to location_url(@location), notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,8 +35,8 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1 or /locations/1.json
   def update
     respond_to do |format|
-      if @location.update(venue_params)
-        format.html { redirect_to venue_url(@location), notice: 'Location was successfully updated.' }
+      if @location.update(location_params)
+        format.html { redirect_to location_url(@location), notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class LocationsController < ApplicationController
     @location.destroy!
 
     respond_to do |format|
-      format.html { redirect_to venues_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -58,12 +58,12 @@ class LocationsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_venue
-    @location = Location.includes('reservations').find(params[:id])
+  def set_location
+    @location = Location.includes('bookings').find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
-  def venue_params
+  def location_params
     params.require(:location).permit(:name, :cover)
   end
 end
