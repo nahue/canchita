@@ -3,14 +3,18 @@
     <% if location.cover.attached? %>
       <% if action_name != "show" %>
         <%= link_to location do %>
-          <img src="<%= url_for(location.cover) %>" class="object-cover w-full h-48">
+          <img src="<%= url_for(location.cover) %>" class="object-cover w-full h-48" alt="">
         <% end %>
       <% else %>
-        <%= image_tag location.cover %>
+        <div style="background-image: url(<%= url_for(location.cover) %>)" class=" relative bg-center bg-cover w-full h-32">
+
+          <p class="absolute bottom-0 left-0">
+            <strong class="block bg-black/50 m-2 p-2 text-white font-medium"><%= location.name %></strong>
+          </p>
+        </div>
+
       <% end %>
     <% end %>
   </div>
-  <p class="my-5">
-    <strong class="block mb-1 font-medium"><%= location.name %></strong>
-  </p>
+
 </div>

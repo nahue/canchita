@@ -9,9 +9,9 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
-<body>
+<body class="bg-white">
 <header>
-  <nav class="bg-gray-800">
+  <nav class="bg-gray-50">
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div
@@ -30,20 +30,13 @@
             "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a
                 href="<%= url_for root_path %>"
-                class="px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-md "
+                class="px-3 py-2 text-sm font-medium text-gray-500"
                 aria-current="page"
               >Dashboard</a>
               <%= link_to "Locations",
                           locations_path,
                           class:
-                            "px-3
-                        py-2
-                        text-sm
-                        font-medium
-                        text-gray-300
-                        rounded-md
-                        hover:bg-gray-700
-                        hover:text-white"
+                            "px-3 py-2 text-sm font-medium text-gray-500"
 
               %>
             </div>
@@ -74,8 +67,10 @@
     </div>
   </nav>
 </header>
+
 <main class="container flex px-5 mx-auto mt-28">
   <%= yield %>
 </main>
+
 </body>
 </html>

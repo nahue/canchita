@@ -1,5 +1,10 @@
 # Inspiration
+
 * https://www.figma.com/community/file/1048664553636010896
+
+# TODO
+
+Add Multi-tenancy https://blog.appsignal.com/2020/12/02/building-a-multi-tenant-ruby-on-rails-app-with-subdomains.html
 
 # README
 
