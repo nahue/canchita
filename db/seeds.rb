@@ -11,13 +11,13 @@
 
 user = User.create name: 'John Doe', email: 'john@gmail.com', password: '123demo123', password_confirmation: '123demo123'
 
-location1 = Location.create! name: 'The Location'
+location1 = Location.create! name: 'The Location', owner_user: user
 location1.cover.attach(
   io: File.open(File.join(Rails.root, 'app/assets/images/multi-sport-4.jpg')),
   filename: 'location1.jpg'
 )
 
-location2 = Location.create! name: 'Cochocho Vargas'
+location2 = Location.create! name: 'Cochocho Vargas', owner_user: user
 location2.cover.attach(
   io: File.open(File.join(Rails.root, 'app/assets/images/cochocho_vargas.jpg')),
   filename: 'cochocho_vargas.jpg'

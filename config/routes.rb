@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :locations
+  resources :bookings
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
   get 'sign_up', to: 'registrations#new'
